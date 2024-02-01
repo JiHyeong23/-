@@ -1,12 +1,9 @@
 package sol.UserService.user;
 
 import lombok.*;
-import sol.UserService.post.Post;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -33,8 +30,6 @@ public class User {
     private LocalDateTime updatedAt;
     @Setter
     private LocalDateTime lastLogin;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Post> posts = new ArrayList<>();
 
     public void updateUser(String name, String description) {
         this.name = Objects.requireNonNullElse(name, this.name);
